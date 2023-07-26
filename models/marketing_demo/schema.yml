@@ -1,0 +1,41 @@
+
+version: 2
+
+models:
+  - name: exchange_rates_daily
+    description: "A starter dbt model"
+    config:
+      contract:
+        enforced: true
+      grants:
+        select: ['transformers', 'bia']
+        modify: ['transformers']
+    meta:
+      owner: "hom@babbel.com"
+      model_maturity: in dev
+    columns:
+      - name: date
+        description: "The date column for this table"
+        data_type: timestamp
+        tests:
+          - not_null
+      - name: date_sk
+        description: "The integer format of date column for this table"
+        data_type: int
+        tests:
+          - not_null
+      - name: quote_currency
+        description: "The currency for which exchange rate is to be determined"
+        data_type: string
+        tests:
+          - not_null
+      - name: rate
+        description: "The exchange rate for quote currency"
+        data_type: double
+        tests:
+          - not_null
+      - name: base_currency
+        description: "The base currency which is EUR"
+        data_type: string
+        tests:
+          - not_null

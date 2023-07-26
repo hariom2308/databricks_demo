@@ -1,0 +1,49 @@
+
+version: 2
+
+models:
+  - name: sage_mapping
+    description: "A starter dbt model"
+    config:
+      contract:
+        enforced: true
+      grants:
+        select: ['transformers', 'bia_external_sp']
+        modify: ['bia_external_sp']
+    meta:
+      owner: "hom@babbel.com"
+      model_maturity: in dev
+    columns:
+      - name: country_code2
+        description: "ISO ALPHA-2 notation for a country"
+        data_type: string
+        tests:
+          - not_null
+      - name: subscription_mode
+        description: "Possible values could be 1M1,3M3,6M6,12M12 depending on the duration of the subscription"
+        data_type: string
+        tests:
+          - not_null
+      - name: tier
+        description: "Apple price tier"
+        data_type: bigint
+        tests:
+          - not_null
+      - name: currency
+        description: "Currency of purchase"
+        data_type: string
+        tests:
+          - not_null
+      - name: customer_price
+        description: "Price paid by customer"
+        data_type: double
+        tests:
+          - not_null
+      - name: proceeds
+        description: "Amount credited to developer after all deductions"
+        data_type: double
+        tests:
+          - not_null
+      
+
+

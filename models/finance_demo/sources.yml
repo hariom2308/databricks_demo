@@ -1,0 +1,16 @@
+version: 2
+
+sources:
+  - name: src_schema_bia_external
+    description: 'External data loaded to databricks'
+    schema: _bia_external
+    tables:
+      - name: apple_price_matrix_fact 
+    meta:
+      contains_pii: false
+      owner: "bia"
+    tags:
+      - accounting
+      - dbt
+      - apple
+      - bia

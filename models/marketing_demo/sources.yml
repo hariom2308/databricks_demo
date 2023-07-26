@@ -1,0 +1,18 @@
+version: 2
+
+sources:
+  - name: src_schema_marketing
+    description: 'A table containing exchange rates for all currencies & maintained by Data Transformers'
+    catalog: hound_silver_staging
+    schema: external
+    loaded_at_field: ingested_at
+    tables:
+      - name: exchange_rates_daily
+    meta:
+      contains_pii: true
+      owner: "Data Transformers"
+    tags:
+      - dwh
+      - dbt
+      - exchange_rates
+      - marketing
