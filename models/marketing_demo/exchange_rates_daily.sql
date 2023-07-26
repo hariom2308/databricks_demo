@@ -12,7 +12,6 @@ select
     quote_currency,
     rate,
     base_currency
-
 from 
     {{ source("src_schema_marketing", "exchange_rates_daily") }}
 
